@@ -23,6 +23,8 @@ function send(){
     }
     socket.emit("chatting", param)
 
+    chatInput.value=""
+
 }
 
 sendButton.addEventListener("click", send)
