@@ -2,11 +2,18 @@
 
 // 모듈
 const express = require("express");
+const app = express();
+const http = require('http');
 const bodyParser = require("body-parser");
+const server = http.createServer(app);
+const socketIO = require('socket.io');
 const dotenv = require("dotenv");
+const moment = require("moment")
+const io = socketIO(server);
+const PORT = process.env.PORT || 8080;
 dotenv.config();
 
-const app = express();
+
 
 // 라우팅
 const home = require("./src/routes/home");
@@ -21,4 +28,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use("/", home); // use -> 미들 웨어를 등록해주는 메서드.
 
+
+
+
+server.listen(PORT, () => {
+  console.log(`${PORT} 포트에서 서버가 가동되었습니다.`);
+});
+
+
+io.on("connection",(socket)=>{
+    socket.on("chatting",(data)=>{
+        const {name, msg}  = data;
+         io.emit("chatting", {
+             name:name,
+             msg:msg,
+             time:moment(new Date()).format("h:ss A")
+         })
+         
+    })
+  })
+
+
+  
 module.exports = app;

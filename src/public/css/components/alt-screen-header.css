@@ -1,9 +1,9 @@
 .alt-header {
-  padding: var(--horizontal-space);
-  margin-bottom: 15px;
+  padding: var(--horizontal-space);  
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #b2c7d9;
 }
 .alt-header__column {
   width: 33%;
