@@ -1,11 +1,8 @@
 {
-  "name": "login-lecture",
+  "name": "kakao-clone",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
-  "bin": {
-    "login-lecture": "www.js"
-  },
+  "main": "app.js",  
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
@@ -22,7 +19,5 @@
     "start": "node app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "MIT"
+  "keywords": []
 }
